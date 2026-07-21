@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="金铲铲之战装备合成表大全，包含所有基础装备属性、成装合成配方、纹章转职、热门阵容推荐。快速查询装备合成公式，助你轻松上分。">
+<meta name="keywords" content="金铲铲之战,装备合成,金铲铲装备图鉴,金铲铲合成表,金铲铲之战装备,云顶之弈,自走棋,阵容推荐">
+<meta name="robots" content="index,follow">
+<title>金铲铲之战装备合成表 - 完整图鉴大全 | 阵容推荐</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "金铲铲之战装备合成图鉴",
+  "description": "金铲铲之战装备合成表大全，快速查询所有装备合成配方、属性效果",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "All"
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e0d5ff;min-height:100vh}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+.top-bar{background:linear-gradient(90deg,#ffd700,#ff8c00);color:#1a1a2e;text-align:center;padding:6px;font-size:13px;font-weight:600;letter-spacing:1px}
+.ad-banner{background:rgba(255,215,0,0.08);border:2px dashed rgba(255,215,0,0.3);border-radius:12px;text-align:center;padding:30px;margin:20px 0;color:rgba(255,215,0,0.5);font-size:18px;letter-spacing:2px;user-select:none}
+.ad-banner::before{content:"📢 广告位招租"}
+
+header{text-align:center;padding:30px 0 16px}
+header h1{font-size:42px;background:linear-gradient(135deg,#ffd700,#ffaa00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px}
+header p{color:#a89cc8;margin-top:8px;font-size:15px}
+header .version-badge{display:inline-block;background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3);border-radius:20px;padding:4px 16px;font-size:12px;color:#ffd700;margin-top:8px}
+
+.search-box{text-align:center;margin:18px 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.search-box input{width:320px;max-width:90%;padding:12px 24px;border:2px solid #4a3f7a;border-radius:30px;background:rgba(255,255,255,0.06);color:#e0d5ff;font-size:15px;outline:none;transition:0.3s}
+.search-box input:focus{border-color:#ffd700}
+.search-box input::placeholder{color:#6a5e8a}
+.search-box .btn{padding:10px 24px;border:2px solid #ffd700;border-radius:30px;background:transparent;color:#ffd700;font-size:14px;cursor:pointer;transition:0.3s;white-space:nowrap}
+.search-box .btn:hover{background:rgba(255,215,0,0.12)}
+.search-box .btn.active{background:#ffd700;color:#1a1a2e}
+
+.section-title{font-size:24px;margin:36px 0 16px;padding-left:14px;border-left:4px solid #ffd700;color:#ffd700;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.section-title .sub{font-size:13px;color:#6a5e8a;font-weight:400;letter-spacing:0}
+.section-title .tag{font-size:11px;background:rgba(255,215,0,0.15);color:#ffd700;padding:2px 10px;border-radius:12px;font-weight:400;letter-spacing:0}
+
+/* 基础装备 */
+.base-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:12px;margin-bottom:24px}
+.base-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 8px;text-align:center;cursor:pointer;transition:0.25s;position:relative}
+.base-card:hover{background:rgba(255,215,0,0.1);border-color:#ffd700;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,215,0,0.12)}
+.base-card .icon{font-size:38px;display:block;margin-bottom:6px}
+.base-card .name{font-size:14px;font-weight:600}
+.base-card .stat{font-size:12px;color:#a89cc8;margin-top:3px}
+.base-card.dim{opacity:0.2}
+.base-card.selected{border-color:#ffd700;background:rgba(255,215,0,0.15);box-shadow:0 0 20px rgba(255,215,0,0.2)}
+
+/* 合成模拟器 */
+.sim-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 20px;margin-bottom:30px;text-align:center}
+.sim-box .sim-title{font-size:16px;color:#c8b8f0;margin-bottom:16px}
+.sim-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sim-row select{padding:10px 16px;border-radius:12px;border:2px solid #4a3f7a;background:rgba(255,255,255,0.06);color:#e0d5ff;font-size:15px;outline:none;cursor:pointer;min-width:130px}
+.sim-row select:focus{border-color:#ffd700}
+.sim-row select option{background:#1a1a2e;color:#e0d5ff}
+.sim-row .plus{color:#6a5e8a;font-size:22px;font-weight:700}
+.sim-row .eq{color:#ffd700;font-size:22px;font-weight:700}
+.sim-result{padding:16px;border-radius:12px;display:none;max-width:400px;margin:0 auto}
+.sim-result.show{display:block;background:rgba(255,215,0,0.06);border:1px solid rgba(255,215,0,0.15)}
+.sim-result .ri{font-size:36px;display:block;margin-bottom:4px}
+.sim-result .rn{font-size:20px;font-weight:700;color:#ffd700}
+.sim-result .rd{font-size:13px;color:#a89cc8;margin-top:6px;line-height:1.6}
+.sim-result .rr{font-size:12px;color:#6a5e8a;margin-top:4px}
+
+/* 合成表 */
+.combine-section{margin-bottom:28px}
+.combine-header{display:flex;align-items:center;gap:10px;background:rgba(255,215,0,0.06);padding:12px 18px;border-radius:12px 12px 0 0;border:1px solid rgba(255,215,0,0.12);border-bottom:none;cursor:pointer;user-select:none;transition:0.2s}
+.combine-header:hover{background:rgba(255,215,0,0.1)}
+.combine-header .arrow{transition:0.3s;font-size:12px;color:#6a5e8a}
+.combine-header .arrow.collapsed{transform:rotate(-90deg)}
+.combine-header .icon{font-size:24px}
+.combine-header .title{font-size:16px;font-weight:600;flex:1}
+.combine-header .count{font-size:12px;color:#6a5e8a}
+
+.combine-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-top:none;border-radius:0 0 12px 12px}
+.combine-body.hidden{display:none}
+
+.recipe-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px;transition:0.2s;cursor:pointer}
+.recipe-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,215,0,0.25);transform:translateY(-1px)}
+.recipe-card .recipe-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.recipe-card .recipe-top .ri{font-size:22px}
+.recipe-card .item-name{font-size:15px;font-weight:600;color:#ffd700}
+.recipe-card .item-rating{font-size:11px;color:#6a5e8a;margin-left:auto;background:rgba(255,215,0,0.1);padding:1px 8px;border-radius:8px}
+.recipe-card .recipe-formula{display:flex;align-items:center;gap:5px;font-size:13px;color:#c8b8f0;margin-bottom:5px;flex-wrap:wrap}
+.recipe-card .recipe-formula .plus,.recipe-card .recipe-formula .eq{color:#6a5e8a}
+.recipe-card .desc{font-size:12px;color:#a89cc8;line-height:1.6}
+
+/* 弹窗 */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal-box{background:linear-gradient(135deg,#1a1a2e,#2a1f4e);border:1px solid rgba(255,215,0,0.2);border-radius:20px;padding:30px;max-width:460px;width:100%;position:relative;animation:modalIn .25s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(0.9) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#6a5e8a;transition:0.2s;background:none;border:none;line-height:1}
+.modal-close:hover{color:#ffd700}
+.modal-icon{font-size:56px;display:block;text-align:center;margin-bottom:10px}
+.modal-name{font-size:24px;font-weight:700;color:#ffd700;text-align:center;margin-bottom:4px}
+.modal-type{text-align:center;font-size:13px;color:#6a5e8a;margin-bottom:14px}
+.modal-formula{text-align:center;font-size:14px;color:#c8b8f0;margin-bottom:14px;background:rgba(255,215,0,0.05);padding:10px;border-radius:10px}
+.modal-stat{font-size:13px;color:#e0d5ff;margin-bottom:10px;line-height:1.7;background:rgba(255,255,255,0.03);padding:12px;border-radius:10px}
+.modal-desc{font-size:14px;color:#a89cc8;line-height:1.7;margin-bottom:14px}
+.modal-tip{font-size:13px;color:#ffd700;line-height:1.6;background:rgba(255,215,0,0.06);padding:12px;border-radius:10px;border-left:3px solid #ffd700}
+.modal-tip::before{content:"💡 建议：";font-weight:600}
+
+/* 阵容推荐 */
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:30px}
+.comp-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;transition:0.25s;cursor:pointer}
+.comp-card:hover{border-color:rgba(255,215,0,0.25);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2)}
+.comp-card .comp-header{padding:18px 16px 12px;display:flex;align-items:center;gap:10px}
+.comp-card .comp-icon{font-size:32px}
+.comp-card .comp-name{font-size:17px;font-weight:700;color:#ffd700}
+.comp-card .comp-tier{font-size:11px;padding:2px 10px;border-radius:10px;margin-left:auto}
+.comp-tier.t0{background:#ff4d4f;color:#fff}.comp-tier.t1{background:#ff7a45;color:#fff}.comp-tier.t2{background:#1890ff;color:#fff}
+.comp-card .comp-preview{padding:0 16px 16px;font-size:13px;color:#a89cc8;line-height:1.6}
+.comp-card .comp-detail{display:none;padding:0 16px 18px;border-top:1px solid rgba(255,255,255,0.05)}
+.comp-card .comp-detail.show{display:block}
+.comp-detail .cd-title{font-size:13px;color:#6a5e8a;margin:12px 0 6px;font-weight:600}
+.comp-detail .cd-text{font-size:13px;color:#c8b8f0;line-height:1.7}
+.comp-detail .cd-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.comp-detail .cd-tags span{padding:3px 10px;border-radius:12px;font-size:12px;background:rgba(255,215,0,0.08);color:#ffd700}
+
+/* 版本信息 */
+.patch-note{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin-bottom:20px;font-size:14px;color:#a89cc8;line-height:1.8}
+.patch-note strong{color:#ffd700}
+
+/* 下载按钮 */
+.download-area{text-align:center;margin:40px 0}
+.download-area a{display:inline-block;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a1a2e;padding:14px 44px;border-radius:40px;font-size:18px;font-weight:700;text-decoration:none;transition:0.3s;box-shadow:0 4px 20px rgba(255,215,0,0.2)}
+.download-area a:hover{transform:scale(1.05);box-shadow:0 6px 30px rgba(255,215,0,0.35)}
+.download-area p{color:#6a5e8a;font-size:13px;margin-top:8px}
+
+/* 对位分析器 */
+.match-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 20px;margin-bottom:30px}
+.match-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.match-row select{padding:10px 16px;border-radius:12px;border:2px solid #4a3f7a;background:rgba(255,255,255,0.06);color:#e0d5ff;font-size:15px;outline:none;cursor:pointer;min-width:150px;flex:1;max-width:220px}
+.match-row select:focus{border-color:#ffd700}
+.match-row select option{background:#1a1a2e;color:#e0d5ff}
+.match-row .vs{color:#6a5e8a;font-size:14px;font-weight:700;padding:0 4px}
+.match-btn{text-align:center;margin-bottom:16px}
+.match-btn button{padding:10px 32px;border:none;border-radius:30px;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a1a2e;font-size:15px;font-weight:700;cursor:pointer;transition:0.3s}
+.match-btn button:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(255,215,0,0.3)}
+.match-result{display:none}
+.match-result.show{display:block}
+.match-result .mr-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin-bottom:12px}
+.match-result .mr-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.match-result .mr-badge{font-size:13px;padding:3px 14px;border-radius:20px;font-weight:700}
+.match-result .mr-badge.win{background:rgba(255,215,0,0.15);color:#ffd700}
+.match-result .mr-badge.lose{background:rgba(255,80,80,0.15);color:#ff5050}
+.match-result .mr-badge.draw{background:rgba(100,180,255,0.15);color:#64b4ff}
+.match-result .mr-title{font-size:16px;font-weight:600;color:#ffd700}
+.match-result .mr-label{font-size:12px;color:#6a5e8a;margin:10px 0 4px;font-weight:600}
+.match-result .mr-text{font-size:13px;color:#c8b8f0;line-height:1.7}
+.match-result .mr-tips{padding:12px;border-radius:10px;font-size:13px;line-height:1.7;margin-top:8px}
+.match-result .mr-tips.good{background:rgba(255,215,0,0.06);border-left:3px solid #ffd700;color:#e0d5ff}
+.match-result .mr-tips.bad{background:rgba(255,80,80,0.06);border-left:3px solid #ff5050;color:#e0d5ff}
+.match-result .mr-items{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.match-result .mr-items span{padding:4px 12px;border-radius:12px;font-size:12px;background:rgba(255,215,0,0.08);color:#ffd700}
+
+footer{text-align:center;padding:40px 0;color:#4a3f7a;font-size:13px;line-height:2}
+
+@media(max-width:600px){
+  header h1{font-size:28px}
+  .base-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .base-card{padding:10px 6px}
+  .base-card .icon{font-size:30px}
+  .combine-body{grid-template-columns:1fr}
+  .sim-row select{min-width:100px;font-size:13px}
+  .modal-box{padding:20px;margin:10px}
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function(){
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?999201f21d76deee41e7ecee7e34f8bb";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+
+<div class="top-bar">🏆 金铲铲之战装备图鉴 · 助你轻松上分</div>
+<div class="container">
+
+<div class="ad-banner"></div>
+
+<header>
+  <h1>⚔ 金铲铲之战</h1>
+  <p>装备合成图鉴 · 合成模拟 · 阵容推荐</p>
+  <span class="version-badge">📌 当前赛季通用版</span>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="搜索装备名称 / 属性 / 配方..." oninput="filterItems()">
+  <button class="btn" onclick="document.getElementById('searchInput').value='';filterItems();showAll()">清除</button>
+</div>
+
+<!-- ========== 基础装备 ========== -->
+<h2 class="section-title">✦ 基础装备 <span class="sub">点击装备可查看详情</span></h2>
+<div class="base-grid" id="baseGrid"></div>
+
+<!-- ========== 合成模拟器 ========== -->
+<h2 class="section-title">✦ 合成模拟器 <span class="tag">试试看</span></h2>
+<div class="sim-box">
+  <div class="sim-title">选择两件基础装备，看看能合成什么</div>
+  <div class="sim-row">
+    <select id="simSelect1" onchange="simulate()"></select>
+    <span class="plus">+</span>
+    <select id="simSelect2" onchange="simulate()"></select>
+    <span class="eq">=</span>
+  </div>
+  <div class="sim-result" id="simResult"></div>
+</div>
+
+<!-- ========== 合成装备 ========== -->
+<h2 class="section-title">✦ 全部合成配方 <span class="tag" id="totalCount"></span></h2>
+<div id="combineContainer"></div>
+
+<!-- ========== 热门阵容推荐 ========== -->
+<h2 class="section-title">✦ 热门阵容推荐 <span class="sub">点击展开详情</span></h2>
+<div class="comp-grid" id="compGrid"></div>
+
+<!-- ========== 对位分析器 ========== -->
+<h2 class="section-title">✦ 对位分析器 <span class="tag">克制关系</span></h2>
+<div class="match-box">
+  <div class="match-row">
+    <select id="matchMyComp"></select>
+    <span class="vs">VS</span>
+    <select id="matchEnemyComp"></select>
+  </div>
+  <div class="match-btn">
+    <button onclick="analyzeMatchup()">🔍 分析对位</button>
+  </div>
+  <div class="match-result" id="matchResult"></div>
+</div>
+
+<!-- ========== 版本说明 ========== -->
+<h2 class="section-title">✦ 版本说明</h2>
+<div class="patch-note">
+  <p><strong>金铲铲之战</strong>是英雄联盟云顶之弈正版授权自走棋手游。玩家通过搭配英雄羁绊与装备合成来组建最强阵容。</p>
+  <p style="margin-top:8px">掌握<strong>装备合成表</strong>是上分的关键。合理分配基础装备可以极大提升战斗力。本图鉴收录了主流赛季的装备合成配方和属性效果，帮助玩家快速查询。</p>
+  <p style="margin-top:8px;font-size:12px;color:#6a5e8a">⚠️ 不同赛季装备配方可能有所调整，请以游戏内为准</p>
+</div>
+
+<!-- ========== 下载 ========== -->
+<div class="download-area">
+  <a href="https://jcc.qq.com" target="_blank" rel="nofollow">📥 下载金铲铲之战</a>
+  <p>（可替换为推广链接赚取佣金）</p>
+</div>
+
+<div class="ad-banner"></div>
+
+<footer>
+  <p>金铲铲之战装备合成图鉴 · 装备合成表大全</p>
+  <p>数据基于主流赛季 · 实际内容以游戏内为准</p>
+  <p>本站为玩家自建攻略站 · 非官方</p>
+</footer>
+
+</div>
+
+<!-- ========== 详情弹窗 ========== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <div class="modal-name" id="modalName"></div>
+    <div class="modal-type" id="modalType"></div>
+    <div class="modal-formula" id="modalFormula"></div>
+    <div class="modal-stat" id="modalStat"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+    <div class="modal-tip" id="modalTip"></div>
+  </div>
+</div>
+
+<script>
+// ========== 数据 ==========
+const BASE_ITEMS = [
+  {id:'bf',name:'暴风大剑',icon:'🗡️',stat:'+20 攻击力',desc:'增加携带者的物理攻击输出，适合物理核心输出英雄'},
+  {id:'bow',name:'反曲之弓',icon:'🏹',stat:'+20% 攻击速度',desc:'提升携带者的攻击频率，适合依赖普攻的输出英雄'},
+  {id:'rod',name:'无用大棒',icon:'🪄',stat:'+20 法术强度',desc:'增强技能伤害和治疗效果，适合法师和技能型英雄'},
+  {id:'tear',name:'女神之泪',icon:'💧',stat:'+20 法力值',desc:'让英雄更快施放技能，适合高法力消耗英雄'},
+  {id:'vest',name:'锁子甲',icon:'🛡️',stat:'+25 护甲',desc:'提供物理防御，适合前排坦克和战士英雄'},
+  {id:'cloak',name:'负极斗篷',icon:'🧣',stat:'+25 魔抗',desc:'提供魔法防御，适合对抗法系阵容'},
+  {id:'belt',name:'巨人腰带',icon:'🔴',stat:'+250 生命值',desc:'增加生存能力，适合前排坦克英雄'},
+  {id:'spat',name:'金铲铲',icon:'🥄',stat:'特殊：转职合成',desc:'与基础装备合成可获得对应羁绊纹章，两个金铲铲合成自然之力'},
+  {id:'glove',name:'拳套',icon:'🥊',stat:'+20% 暴击几率',desc:'提供暴击属性，适合暴力输出英雄'}
+];
+
+const RECIPES = {
+  // 暴风大剑
+  'bf+bf':{name:'死亡之刃',icon:'⚔️',desc:'初始携带3层效果，每层+25攻击力，层数无上限',tip:'适合持续输出英雄，层数叠起来后伤害恐怖',rating:4,stat:'+20 攻击力 × 2'},
+  'bf+bow':{name:'最后的轻语',icon:'💥',desc:'物理伤害暴击会降低目标70%护甲，持续3秒',tip:'对抗高护甲前排必备，射手和AD核心的神器',rating:5,stat:'+20 攻击力 +20% 攻速'},
+  'bf+rod':{name:'海克斯科技枪刃',icon:'🔫',desc:'携带者获得25%全能吸血，溢出的治疗提供护盾（最大400）',tip:'适合持续输出型法师或近战战士，续航+保命',rating:4,stat:'+20 攻击力 +20 法强'},
+  'bf+tear':{name:'朔极之矛',icon:'🔱',desc:'每次攻击额外回复8法力值',tip:'攻速快的英雄携带可频繁释放技能，蓝条英雄的神装',rating:5,stat:'+20 攻击力 +20 法力值'},
+  'bf+vest':{name:'守护天使',icon:'🪽',desc:'携带者阵亡后以400生命值复活，清除控制（每场一次）',tip:'前排核心必出，保证关键棋子能放出技能',rating:5,stat:'+20 攻击力 +25 护甲'},
+  'bf+cloak':{name:'夜之锋刃',icon:'🌙',desc:'携带者生命值降至60%时，获得短暂隐身并清除负面效果',tip:'保护主C不被第一时间切死，适合脆皮输出',rating:4,stat:'+20 攻击力 +25 魔抗'},
+  'bf+belt':{name:'基克的先驱',icon:'📯',desc:'战斗开始时，携带者和同一排2格内友军获得+30%攻速',tip:'放在主C旁边提供攻速加成，辅助型装备',rating:4,stat:'+20 攻击力 +250 生命值'},
+  'bf+spat':{name:'剑士纹章',icon:'⚔️',desc:'携带者获得剑士羁绊',tip:'给非剑士核心棋子使用，激活高剑士羁绊',rating:3,stat:'转职装备'},
+  'bf+glove':{name:'无尽之刃',icon:'🗡️',desc:'携带者获得+40%暴击伤害，技能也可以暴击',tip:'暴力输出核心的神装，配合珠光护手效果更佳',rating:5,stat:'+20 攻击力 +20% 暴击'},
+  // 反曲之弓
+  'bow+bf':{name:'最后的轻语',icon:'💥',desc:'物理伤害暴击会降低目标70%护甲，持续3秒',tip:'与暴风大剑相同配方',rating:5,stat:'+20 攻击力 +20% 攻速'},
+  'bow+bow':{name:'鬼索的狂暴之刃',icon:'📜',desc:'攻击提供+6%额外攻速，持续至战斗结束，无上限',tip:'攻速流核心，叠加起来后输出爆炸',rating:5,stat:'+20% 攻速 × 2'},
+  'bow+rod':{name:'羊刀',icon:'🐏',desc:'攻击提供+6%额外攻速和+6法强，持续至战斗结束',tip:'混合输出英雄适用，攻速和法强共同成长',rating:4,stat:'+20% 攻速 +20 法强'},
+  'bow+tear':{name:'斯塔缇克电刃',icon:'⚡',desc:'每3次攻击释放连锁闪电，对4目标造成50魔法伤害',tip:'克制护盾和残血阵容，适合攻速快的英雄',rating:4,stat:'+20% 攻速 +20 法力值'},
+  'bow+vest':{name:'泰坦的坚决',icon:'🛡️',desc:'叠加层数时获得3护甲和3魔抗，满25层后获得双抗和体型提升',tip:'前排战士神装，越打越肉越打越强',rating:5,stat:'+20% 攻速 +25 护甲'},
+  'bow+cloak':{name:'卢安娜的飓风',icon:'🌪️',desc:'攻击发射弹体攻击额外1个目标，造成55%攻击力物理伤害',tip:'群体输出神器，分裂弓效果',rating:4,stat:'+20% 攻速 +25 魔抗'},
+  'bow+belt':{name:'疾射火炮',icon:'🔥',desc:'攻击距离提升1格，攻击不会落空（必中）',tip:'让近战英雄安全输出，或者让射手更安全',rating:4,stat:'+20% 攻速 +250 生命值'},
+  'bow+spat':{name:'神射手纹章',icon:'🎯',desc:'携带者获得神射手羁绊',tip:'给远程棋子使用，激活高神射手羁绊',rating:3,stat:'转职装备'},
+  'bow+glove':{name:'巨人杀手',icon:'🔪',desc:'攻击和技能对最大生命值大于1600的目标造成额外30%伤害',tip:'对抗重装前排阵容的利器',rating:4,stat:'+20% 攻速 +20% 暴击'},
+  // 无用大棒
+  'rod+bf':{name:'海克斯科技枪刃',icon:'🔫',desc:'携带者获得25%全能吸血，溢出治疗提供护盾（最大400）',tip:'与暴风大剑相同配方',rating:4,stat:'+20 攻击力 +20 法强'},
+  'rod+bow':{name:'羊刀',icon:'🐏',desc:'攻击提供+6%额外攻速和+6法强，持续至战斗结束',tip:'与反曲之弓相同配方',rating:4,stat:'+20% 攻速 +20 法强'},
+  'rod+rod':{name:'灭世者的死亡之帽',icon:'🎩',desc:'增加70%额外法术强度（包含基础装备）',tip:'法系核心输出神装，法强越高收益越大',rating:5,stat:'+20 法强 × 2'},
+  'rod+tear':{name:'大天使之杖',icon:'💫',desc:'携带者每次施放技能时获得35法术强度',tip:'适合频繁施法的英雄，越往后越强',rating:4,stat:'+20 法强 +20 法力值'},
+  'rod+vest':{name:'蓝霸符',icon:'💙',desc:'携带者施放技能后回复20法力值',tip:'适合法力值上限低、技能强力的英雄',rating:4,stat:'+20 法强 +25 护甲'},
+  'rod+cloak':{name:'珠光护手',icon:'✨',desc:'技能可以暴击，暴击几率30%，+30%暴击伤害',tip:'法系暴击流核心，配合无尽之刃效果翻倍',rating:5,stat:'+20 法强 +25 魔抗'},
+  'rod+belt':{name:'莫雷洛秘典',icon:'📖',desc:'魔法或真实伤害会灼烧目标，10秒内造成25%最大生命值伤害并降低治疗',tip:'克制回血阵容（如斗士、吸血鬼），法系必出',rating:5,stat:'+20 法强 +250 生命值'},
+  'rod+spat':{name:'魔法师纹章',icon:'🔮',desc:'携带者获得魔法师羁绊',tip:'给非法师棋子使用，激活高法师羁绊',rating:3,stat:'转职装备'},
+  'rod+glove':{name:'正义之手',icon:'⚖️',desc:'获得2个效果：+15攻击力+15法强，或22%全能吸血（每回合随机）',tip:'万金油装备，适用性广泛',rating:4,stat:'+20 法强 +20% 暴击'},
+  // 女神之泪
+  'tear+bf':{name:'朔极之矛',icon:'🔱',desc:'每次攻击额外回复8法力值',tip:'与暴风大剑相同配方',rating:5,stat:'+20 攻击力 +20 法力值'},
+  'tear+bow':{name:'斯塔缇克电刃',icon:'⚡',desc:'每3次攻击释放连锁闪电，对4目标造成50魔法伤害',tip:'与反曲之弓相同配方',rating:4,stat:'+20% 攻速 +20 法力值'},
+  'tear+rod':{name:'大天使之杖',icon:'💫',desc:'携带者每次施放技能时获得35法术强度',tip:'与无用大棒相同配方',rating:4,stat:'+20 法强 +20 法力值'},
+  'tear+tear':{name:'炽天使之拥',icon:'👼',desc:'携带者每次施放技能时回复20法力值',tip:'回复效果比蓝霸符更强，适合蓝条较长的英雄',rating:4,stat:'+20 法力值 × 2'},
+  'tear+vest':{name:'冰霜之心',icon:'❄️',desc:'降低2格内敌人35%攻击速度',tip:'克制攻速流阵容，放在前排效果最大化',rating:3,stat:'+20 法力值 +25 护甲'},
+  'tear+cloak':{name:'能量圣杯',icon:'🏆',desc:'战斗开始时，携带者和左右各1格友军获得+25法术强度',tip:'辅助装备，放在法师旁边提供法强加成',rating:3,stat:'+20 法力值 +25 魔抗'},
+  'tear+belt':{name:'救赎',icon:'💝',desc:'每5秒为周围友军回复15%已损失生命值，减免25%范围伤害',tip:'团队续航核心，前排坦克携带效果最佳',rating:4,stat:'+20 法力值 +250 生命值'},
+  'tear+spat':{name:'刺客纹章',icon:'🗡️',desc:'携带者获得刺客羁绊',tip:'给非刺客棋子使用，跳后排创造奇效',rating:3,stat:'转职装备'},
+  'tear+glove':{name:'伏击之爪',icon:'🦀',desc:'携带者的技能可以眩晕目标1.5秒',tip:'控制型装备，适合前排坦克',rating:3,stat:'+20 法力值 +20% 暴击'},
+  // 锁子甲
+  'vest+bf':{name:'守护天使',icon:'🪽',desc:'携带者阵亡后以400生命值复活，清除控制（每场一次）',tip:'与暴风大剑相同配方',rating:5,stat:'+20 攻击力 +25 护甲'},
+  'vest+bow':{name:'泰坦的坚决',icon:'🛡️',desc:'叠加层数时获得3护甲和3魔抗，满25层后获得双抗提升',tip:'与反曲之弓相同配方',rating:5,stat:'+20% 攻速 +25 护甲'},
+  'vest+rod':{name:'蓝霸符',icon:'💙',desc:'携带者施放技能后回复20法力值',tip:'与无用大棒相同配方',rating:4,stat:'+20 法强 +25 护甲'},
+  'vest+tear':{name:'冰霜之心',icon:'❄️',desc:'降低2格内敌人35%攻击速度',tip:'与女神之泪相同配方',rating:3,stat:'+20 法力值 +25 护甲'},
+  'vest+vest':{name:'荆棘背心',icon:'🦔',desc:'使暴击额外伤害降低30%；受到普攻时反弹100魔法伤害',tip:'克制暴击流物理阵容，前排坦克必备',rating:4,stat:'+25 护甲 × 2'},
+  'vest+cloak':{name:'石像鬼石板甲',icon:'🧱',desc:'每被一个敌人攻击获得15护甲和15魔抗',tip:'单前排扛伤害的神装，被围殴时双抗极高',rating:5,stat:'+25 护甲 +25 魔抗'},
+  'vest+belt':{name:'日炎斗篷',icon:'🔥',desc:'每2秒灼烧周围2格内敌人，造成3%最大生命值真实伤害并降低治疗',tip:'克制前排抱团阵容，持续伤害+减治疗',rating:4,stat:'+25 护甲 +250 生命值'},
+  'vest+spat':{name:'重骑兵纹章',icon:'🐴',desc:'携带者获得重骑兵羁绊',tip:'给前排棋子使用，激活高重骑兵羁绊',rating:3,stat:'转职装备'},
+  'vest+glove':{name:'圣盾使的契约',icon:'🛡️',desc:'每场战斗第一次生命值低于50%时，获得一个持续3秒的护盾',tip:'保命装备，适合容易被集火的前排',rating:3,stat:'+25 护甲 +20% 暴击'},
+  // 负极斗篷
+  'cloak+bf':{name:'夜之锋刃',icon:'🌙',desc:'生命值降至60%时获得隐身并清除负面效果',tip:'与暴风大剑相同配方',rating:4,stat:'+20 攻击力 +25 魔抗'},
+  'cloak+bow':{name:'卢安娜的飓风',icon:'🌪️',desc:'攻击发射弹体攻击额外1个目标，55%攻击力物理伤害',tip:'与反曲之弓相同配方',rating:4,stat:'+20% 攻速 +25 魔抗'},
+  'cloak+rod':{name:'珠光护手',icon:'✨',desc:'技能可以暴击，+30%暴击几率',tip:'与无用大棒相同配方',rating:5,stat:'+20 法强 +25 魔抗'},
+  'cloak+tear':{name:'能量圣杯',icon:'🏆',desc:'战斗开始时周围友军获得+25法强',tip:'与女神之泪相同配方',rating:3,stat:'+20 法力值 +25 魔抗'},
+  'cloak+vest':{name:'石像鬼石板甲',icon:'🧱',desc:'每被一个敌人攻击获得15双抗',tip:'与锁子甲相同配方',rating:5,stat:'+25 护甲 +25 魔抗'},
+  'cloak+cloak':{name:'巨龙之爪',icon:'🐉',desc:'提供120额外魔抗（包含基础装备）',tip:'对抗纯法系阵容的神器',rating:4,stat:'+25 魔抗 × 2'},
+  'cloak+belt':{name:'狂徒铠甲',icon:'💪',desc:'提供+600额外生命值（包含基础装备）',tip:'纯血量装备，适合需要血量的坦克或特定机制英雄',rating:4,stat:'+25 魔抗 +250 生命值'},
+  'cloak+spat':{name:'光明哨兵纹章',icon:'🌟',desc:'携带者获得光明哨兵羁绊',tip:'给非哨兵棋子使用，激活高哨兵羁绊',rating:3,stat:'转职装备'},
+  'cloak+glove':{name:'水银',icon:'💎',desc:'携带者免疫控制效果',tip:'防止主C被控到死，对抗控制阵容必备',rating:4,stat:'+25 魔抗 +20% 暴击'},
+  // 巨人腰带
+  'belt+bf':{name:'基克的先驱',icon:'📯',desc:'携带者和同排友军获得+30%攻速',tip:'与暴风大剑相同配方',rating:4,stat:'+20 攻击力 +250 生命值'},
+  'belt+bow':{name:'疾射火炮',icon:'🔥',desc:'攻击距离+1格，必中',tip:'与反曲之弓相同配方',rating:4,stat:'+20% 攻速 +250 生命值'},
+  'belt+rod':{name:'莫雷洛秘典',icon:'📖',desc:'造成最大生命值25%灼烧伤害并降低治疗',tip:'与无用大棒相同配方',rating:5,stat:'+20 法强 +250 生命值'},
+  'belt+tear':{name:'救赎',icon:'💝',desc:'友军回复15%已损失生命值，减免25%范围伤害',tip:'与女神之泪相同配方',rating:4,stat:'+20 法力值 +250 生命值'},
+  'belt+vest':{name:'日炎斗篷',icon:'🔥',desc:'灼烧周围敌人造成3%最大生命值真实伤害',tip:'与锁子甲相同配方',rating:4,stat:'+25 护甲 +250 生命值'},
+  'belt+cloak':{name:'狂徒铠甲',icon:'💪',desc:'+600额外生命值',tip:'与负极斗篷相同配方',rating:4,stat:'+25 魔抗 +250 生命值'},
+  'belt+belt':{name:'狂徒铠甲',icon:'💪',desc:'+800额外生命值（双腰带叠加效果更强）',tip:'纯血量装，极致堆血',rating:3,stat:'+250 生命值 × 2'},
+  'belt+spat':{name:'骑士纹章',icon:'🛡️',desc:'携带者获得骑士羁绊',tip:'给非骑士棋子使用，激活高骑士羁绊',rating:3,stat:'转职装备'},
+  'belt+glove':{name:'传送门',icon:'🚪',desc:'携带者阵亡后，召唤一个拥有高生命值的虚空生物嘲讽敌人',tip:'前排工具人装备，死后依然发挥作用',rating:3,stat:'+250 生命值 +20% 暴击'},
+  // 金铲铲
+  'spat+bf':{name:'剑士纹章',icon:'⚔️',desc:'携带者获得剑士羁绊',tip:'转职装备，激活高剑士羁绊',rating:3,stat:'转职装备'},
+  'spat+bow':{name:'神射手纹章',icon:'🎯',desc:'携带者获得神射手羁绊',tip:'转职装备，激活高神射手羁绊',rating:3,stat:'转职装备'},
+  'spat+rod':{name:'魔法师纹章',icon:'🔮',desc:'携带者获得魔法师羁绊',tip:'转职装备，激活高法师羁绊',rating:3,stat:'转职装备'},
+  'spat+tear':{name:'刺客纹章',icon:'🗡️',desc:'携带者获得刺客羁绊',tip:'转职装备，激活高刺客羁绊',rating:3,stat:'转职装备'},
+  'spat+vest':{name:'重骑兵纹章',icon:'🐴',desc:'携带者获得重骑兵羁绊',tip:'转职装备，激活高重骑兵羁绊',rating:3,stat:'转职装备'},
+  'spat+cloak':{name:'光明哨兵纹章',icon:'🌟',desc:'携带者获得光明哨兵羁绊',tip:'转职装备，激活高哨兵羁绊',rating:3,stat:'转职装备'},
+  'spat+belt':{name:'骑士纹章',icon:'🛡️',desc:'携带者获得骑士羁绊',tip:'转职装备，激活高骑士羁绊',rating:3,stat:'转职装备'},
+  'spat+spat':{name:'自然之力',icon:'🌿',desc:'携带者不占用上场人口',tip:'多一个人口优势巨大，铲子局必合',rating:5,stat:'转职装备'},
+  'spat+glove':{name:'纹章书',icon:'📕',desc:'开启后选择1个纹章',tip:'随机转职，灵活性强',rating:3,stat:'转职装备'},
+  // 拳套
+  'glove+bf':{name:'无尽之刃',icon:'🗡️',desc:'+40%暴击伤害，技能可暴击',tip:'与暴风大剑相同配方',rating:5,stat:'+20 攻击力 +20% 暴击'},
+  'glove+bow':{name:'巨人杀手',icon:'🔪',desc:'对高生命值目标造成额外30%伤害',tip:'与反曲之弓相同配方',rating:4,stat:'+20% 攻速 +20% 暴击'},
+  'glove+rod':{name:'正义之手',icon:'⚖️',desc:'攻击法强或全能吸血（随机）',tip:'与无用大棒相同配方',rating:4,stat:'+20 法强 +20% 暴击'},
+  'glove+tear':{name:'伏击之爪',icon:'🦀',desc:'技能眩晕目标1.5秒',tip:'与女神之泪相同配方',rating:3,stat:'+20 法力值 +20% 暴击'},
+  'glove+vest':{name:'圣盾使的契约',icon:'🛡️',desc:'低血量时获得护盾',tip:'与锁子甲相同配方',rating:3,stat:'+25 护甲 +20% 暴击'},
+  'glove+cloak':{name:'水银',icon:'💎',desc:'免疫控制',tip:'与负极斗篷相同配方',rating:4,stat:'+25 魔抗 +20% 暴击'},
+  'glove+belt':{name:'传送门',icon:'🚪',desc:'阵亡后召唤虚空生物',tip:'与巨人腰带相同配方',rating:3,stat:'+250 生命值 +20% 暴击'},
+  'glove+spat':{name:'纹章书',icon:'📕',desc:'开启后选择1个纹章',tip:'与金铲铲相同配方',rating:3,stat:'转职装备'},
+  'glove+glove':{name:'窃贼手套',icon:'🧤',desc:'每回合随机获得2件临时装备',tip:'适合不需要固定装备的英雄，经济实惠',rating:4,stat:'+20% 暴击 × 2'}
+};
+
+const TEAM_COMPS = [
+  {
+    name:'法师阵容',icon:'🔮',tier:'t0',
+    desc:'高爆发法系输出，瞬间融化敌方前排',
+    detail:'核心英雄：维克兹、安妮、拉克丝、娑娜\n核心装备：大天使之杖、珠光护手、莫雷洛秘典\n前排坦克：狂徒铠甲、荆棘背心、石像鬼石板甲\n推荐站位：法师沉底角落，坦克顶前排一字排开\n克制关系：克制重骑兵、斗士，被刺客克制',
+    tags:['法系爆发','AOE伤害','新手友好']
+  },
+  {
+    name:'射手阵容',icon:'🏹',tier:'t0',
+    desc:'持续物理输出，后期伤害无敌',
+    detail:'核心英雄：薇恩、艾希、厄斐琉斯、泽丽\n核心装备：鬼索的狂暴之刃、最后的轻语、卢安娜的飓风\n前排坦克：守护天使、日炎斗篷、救赎\n推荐站位：射手沉底分散站位，避免被AOE波及\n克制关系：克制重骑兵、法师，被刺客克制',
+    tags:['持续输出','攻速流','后期保障']
+  },
+  {
+    name:'刺客阵容',icon:'🗡️',tier:'t1',
+    desc:'切后排秒杀脆皮，快节奏压制',
+    detail:'核心英雄：卡特琳娜、派克、阿卡丽、皎月\n核心装备：无尽之刃、正义之手、夜之锋刃\n刺客纹章：给其他棋子转职刺客创造更多输出\n推荐站位：最后一排一字排开，开局直接跳后排\n克制关系：克制法师、射手，被重骑兵克制',
+    tags:['爆发秒杀','后排噩梦','高风险高回报']
+  },
+  {
+    name:'重骑兵阵容',icon:'🐴',tier:'t1',
+    desc:'钢铁防线，肉到打不动',
+    detail:'核心英雄：盖伦、瑟庄妮、克烈、人马\n核心装备：石像鬼石板甲、救赎、狂徒铠甲、日炎斗篷\n重骑兵纹章：大幅提升坦度\n推荐站位：前排抱团集中，让石像鬼效果最大化\n克制关系：克制刺客、射手，被法师克制',
+    tags:['超高坦度','反甲流','钢铁前排']
+  },
+  {
+    name:'斗士阵容',icon:'💪',tier:'t2',
+    desc:'高血量加成，能抗能打',
+    detail:'核心英雄：科加斯、蒙多、塞恩、大虫子\n核心装备：狂徒铠甲、荆棘背心、救赎、泰坦的坚决\n推荐站位：前排一字排开，C位沉底输出\n克制关系：克制刺客，被射手和法师克制',
+    tags:['高血量','坦克','稳健']
+  },
+  {
+    name:'光明哨兵',icon:'🌟',tier:'t2',
+    desc:'保护核心输出，攻守兼备',
+    detail:'核心英雄：卢锡安、加里奥、艾翁、洛\n核心装备：基克的先驱、能量圣杯、守护天使\n光明哨兵纹章：提升羁绊等级\n推荐站位：围绕核心输出站位，提供护盾保护\n克制关系：均衡型阵容，无明显克制',
+    tags:['保护体系','攻守兼备','灵活']
+  }
+];
+
+// ========== 对位分析数据 ==========
+const MATCHUP_RULES = [
+  {my:0,enemy:3,result:'win',reason:'法师的高爆发AOE可以快速融化重骑兵，重骑兵的护甲在法伤面前形同虚设',tips:'大天使之杖+珠光护手给核心法师，莫雷洛秘典克制重骑兵的治疗',keyItems:['大天使之杖','珠光护手','莫雷洛秘典'],position:'法师沉底，坦克顶前排吸引火力'},
+  {my:0,enemy:4,result:'win',reason:'斗士高血量但魔抗低，法师的技能伤害可以直接蒸发斗士前排',tips:'尽早做出莫雷洛秘典，配合大天使之杖持续输出',keyItems:['莫雷洛秘典','大天使之杖','灭世者的死亡之帽'],position:'坦克前排扛伤，法师分散站位防AOE'},
+  {my:0,enemy:2,result:'lose',reason:'刺客直接跳后排秒杀法师核心，法师的脆弱身板扛不住刺客爆发',tips:'前排补守护天使，或者给核心法师夜之锋刃保命，重骑兵纹章转职可以大幅提高存活率',keyItems:['守护天使','夜之锋刃','冰霜之心'],position:'法师抱团角落，坦克包围保护，预判刺客跳的位置反方向站位'},
+  {my:1,enemy:3,result:'win',reason:'射手的持续输出和破甲效果完美克制高护甲的重骑兵',tips:'最后的轻语是核心装备，配合鬼索的狂暴之刃叠攻速',keyItems:['最后的轻语','鬼索的狂暴之刃','巨人杀手'],position:'射手沉底分散，坦克一字排开顶住'},
+  {my:1,enemy:0,result:'win',reason:'射手的高攻速和分裂弓可以快速清理法师前排，法师的技能前摇给了射手输出时间',tips:'飓风+电刃组合可以快速清理法师阵容，夜之锋刃保护主C',keyItems:['卢安娜的飓风','斯塔缇克电刃','夜之锋刃'],position:'射手分散站位防AOE，坦克顶前排'},
+  {my:1,enemy:2,result:'lose',reason:'刺客直接跳后排秒杀射手核心，射手缺乏自保能力',tips:'给主C守护天使或夜之锋刃，前排做冰霜之心减刺客攻速，重骑转职保护',keyItems:['守护天使','夜之锋刃','冰霜之心'],position:'射手角落抱团，坦克围一圈保护'},
+  {my:2,enemy:0,result:'win',reason:'刺客直接切入后排秒杀法师核心，法师没有位移技能无法逃脱',tips:'无尽之刃+正义之手秒杀后排，夜之锋刃保证刺客存活',keyItems:['无尽之刃','正义之手','夜之锋刃'],position:'刺客最后一排一字排开，开局直接跳后排'},
+  {my:2,enemy:1,result:'win',reason:'刺客直接切后排射手，射手脆皮根本扛不住刺客爆发',tips:'夜之锋刃+无尽之刃保证进场输出，可以给一个冰心减攻速',keyItems:['无尽之刃','夜之锋刃','冰霜之心'],position:'刺客瞄准射手站位方向跳'},
+  {my:2,enemy:3,result:'lose',reason:'重骑兵的高护甲和血量让刺客打不动，重骑兵的控制还能限制刺客输出',tips:'考虑做巨人杀手打坦，或者转法师阵容，不要硬拼重骑兵',keyItems:['巨人杀手','最后的轻语'],position:'避开重骑兵主坦方向，切后排脆皮'},
+  {my:2,enemy:4,result:'win',reason:'斗士虽然血量高但缺乏护甲，刺客的暴击伤害可以快速击杀',tips:'无尽之刃+巨人杀手配合，确保能快速击杀斗士',keyItems:['无尽之刃','巨人杀手','最后的轻语'],position:'优先切斗士后排的输出单位'},
+  {my:3,enemy:2,result:'win',reason:'重骑兵的高护甲让刺客打不动，反甲+石像鬼让刺客绝望',tips:'石像鬼石板甲+荆棘背心是核心，救赎提供团队续航',keyItems:['石像鬼石板甲','荆棘背心','救赎'],position:'前排抱团站，让石像鬼效果最大化'},
+  {my:3,enemy:1,result:'win',reason:'重骑兵的高护甲和血量完美克制射手的物理输出',tips:'日炎斗篷克制射手后排站位，石像鬼+反甲让射手打不动',keyItems:['日炎斗篷','荆棘背心','石像鬼石板甲'],position:'前排一字排开逼近射手'},
+  {my:3,enemy:0,result:'lose',reason:'法师的魔法伤害无视护甲，重骑兵的魔抗偏低会被快速融化',tips:'补巨龙之爪和救赎增加魔抗和团队回复，或者转阵容',keyItems:['巨龙之爪','救赎','狂徒铠甲'],position:'分散站位减少AOE伤害'},
+  {my:4,enemy:2,result:'win',reason:'斗士的高血量让刺客难以秒杀，拖到队友输出就可以反杀',tips:'狂徒铠甲+救赎保证坦度，日炎斗篷持续灼烧刺客',keyItems:['狂徒铠甲','救赎','日炎斗篷'],position:'前排一字排开，保护后排输出'},
+  {my:4,enemy:1,result:'lose',reason:'射手有破甲和巨人杀手，斗士的高血量反而被巨人杀手克制',tips:'荆棘背心反伤，救赎回血，前排尽量分散站位',keyItems:['荆棘背心','救赎','狂徒铠甲'],position:'分散站位，不要让射手同时输出多个斗士'},
+  {my:4,enemy:0,result:'lose',reason:'法师的高爆发AOE输出，斗士的魔抗偏低扛不住',tips:'补巨龙之爪和救赎，前排分散防AOE',keyItems:['巨龙之爪','救赎','狂徒铠甲'],position:'分散站位减少AOE伤害'},
+  {my:5,enemy:2,result:'win',reason:'光明哨兵的护盾保护可以让刺客无法秒杀核心，反打能力强',tips:'基克的先驱+能量圣杯给核心输出加buff',keyItems:['基克的先驱','能量圣杯','守护天使'],position:'围绕核心输出站位，提供护盾保护'},
+  {my:5,enemy:0,result:'draw',reason:'双方各有优劣，光明哨兵的护盾可以抵挡法师爆发，但法师AOE也能打到后排',tips:'给核心输出夜之锋刃防秒杀，做救赎回血',keyItems:['夜之锋刃','救赎','能量圣杯'],position:'分散站位减少AOE伤害'},
+  {my:5,enemy:1,result:'draw',reason:'双方均衡对局，光明哨兵的保护机制和射手的持续输出各有千秋',tips:'基克的先驱给射手加攻速，守护天使保关键棋子',keyItems:['基克的先驱','守护天使','日炎斗篷'],position:'前排顶住，核心输出沉底'}
+];
+
+function getMatchup(myIdx, enemyIdx) {
+  const rule = MATCHUP_RULES.find(r => r.my === myIdx && r.enemy === enemyIdx);
+  if (rule) return rule;
+  // Default: check reverse
+  const reverse = MATCHUP_RULES.find(r => r.my === enemyIdx && r.enemy === myIdx);
+  if (reverse) return {my:myIdx,enemy:enemyIdx,result:reverse.result==='win'?'lose':reverse.result==='lose'?'win':'draw',reason:'对位分析与上方相反',tips:reverse.tips,keyItems:reverse.keyItems,position:reverse.position};
+  return {my:myIdx,enemy:enemyIdx,result:'draw',reason:'双方实力相当，胜负取决于装备质量和棋子星级',tips:'做好核心装备，注意站位调整',keyItems:[],position:'根据对方阵容灵活调整站位'};
+}
+
+// ========== 渲染 ==========
+function render() {
+  renderBaseItems();
+  renderCombineSections();
+  renderSimSelector();
+  renderTeamComps();
+  renderMatchSelector();
+  updateTotalCount();
+}
+
+function renderBaseItems() {
+  const grid = document.getElementById('baseGrid');
+  grid.innerHTML = BASE_ITEMS.map(item => `
+    <div class="base-card" data-id="${item.id}" onclick="showBaseDetail('${item.id}')">
+      <span class="icon">${item.icon}</span>
+      <div class="name">${item.name}</div>
+      <div class="stat">${item.stat}</div>
+    </div>
+  `).join('');
+}
+
+function renderCombineSections() {
+  const container = document.getElementById('combineContainer');
+  container.innerHTML = BASE_ITEMS.map(base => {
+    const recipes = Object.entries(RECIPES)
+      .filter(([key]) => key.startsWith(base.id + '+') || key.endsWith('+' + base.id))
+      .map(([key, val]) => {
+        const parts = key.split('+');
+        const otherId = parts[0] === base.id ? parts[1] : parts[0];
+        const other = BASE_ITEMS.find(b => b.id === otherId);
+        const stars = '★'.repeat(val.rating) + '☆'.repeat(5-val.rating);
+        return {key, other, val, stars};
+      })
+      .sort((a, b) => b.val.rating - a.val.rating);
+
+    return `
+      <div class="combine-section" data-base="${base.id}">
+        <div class="combine-header" onclick="toggleCollapse(this)">
+          <span class="arrow">▼</span>
+          <span class="icon">${base.icon}</span>
+          <span class="title">${base.name} +</span>
+          <span class="count">${recipes.length} 件</span>
+        </div>
+        <div class="combine-body">
+          ${recipes.map(r => {
+            const isDupe = RECIPES[r.key]._used;
+            RECIPES[r.key]._used = true;
+            return `
+            <div class="recipe-card" onclick="showItemDetail('${r.key}')">
+              <div class="recipe-top">
+                <span class="ri">${r.val.icon}</span>
+                <span class="item-name">${r.val.name}</span>
+                <span class="item-rating">${r.stars}</span>
+              </div>
+              <div class="recipe-formula">
+                ${base.icon} ${base.name} <span class="plus">+</span> ${r.other.icon} ${r.other.name} <span class="eq">=</span>
+              </div>
+              <div class="desc">${r.val.desc}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // 清除标记
+  Object.keys(RECIPES).forEach(k => delete RECIPES[k]._used);
+}
+
+function renderSimSelector() {
+  const s1 = document.getElementById('simSelect1');
+  const s2 = document.getElementById('simSelect2');
+  const opts = BASE_ITEMS.map(item =>
+    `<option value="${item.id}">${item.icon} ${item.name}</option>`
+  ).join('');
+  s1.innerHTML = opts;
+  s2.innerHTML = opts;
+}
+
+function renderTeamComps() {
+  const grid = document.getElementById('compGrid');
+  grid.innerHTML = TEAM_COMPS.map((comp, i) => {
+    const details = comp.detail.split('\n').map(d => d.trim()).filter(Boolean);
+    return `
+    <div class="comp-card" onclick="toggleComp(${i})">
+      <div class="comp-header">
+        <span class="comp-icon">${comp.icon}</span>
+        <span class="comp-name">${comp.name}</span>
+        <span class="comp-tier ${comp.tier}">${comp.tier === 't0' ? 'T0' : comp.tier === 't1' ? 'T1' : 'T2'}</span>
+      </div>
+      <div class="comp-preview">${comp.desc}</div>
+      <div class="comp-detail" id="compDetail${i}">
+        ${details.map(d => {
+          if (d.startsWith('核心英雄') || d.startsWith('核心装备') || d.startsWith('前排坦克'))
+            return `<div class="cd-title">${d.split('：')[0]}</div><div class="cd-text">${d.split('：').slice(1).join('：')}</div>`;
+          if (d.startsWith('推荐站位') || d.startsWith('克制关系'))
+            return `<div class="cd-title">${d.split('：')[0]}</div><div class="cd-text">${d.split('：').slice(1).join('：')}</div>`;
+          return `<div class="cd-text" style="margin-top:4px">${d}</div>`;
+        }).join('')}
+        <div class="cd-title">标签</div>
+        <div class="cd-tags">${comp.tags.map(t => `<span>${t}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updateTotalCount() {
+  const total = new Set(Object.keys(RECIPES).map(k => RECIPES[k].name)).size;
+  document.getElementById('totalCount').textContent = `${total} 件成装`;
+}
+
+function renderMatchSelector() {
+  const s1 = document.getElementById('matchMyComp');
+  const s2 = document.getElementById('matchEnemyComp');
+  const opts = TEAM_COMPS.map((c, i) =>
+    `<option value="${i}">${c.icon} ${c.name}</option>`
+  ).join('');
+  s1.innerHTML = opts;
+  s2.innerHTML = opts;
+}
+
+function analyzeMatchup() {
+  const myIdx = parseInt(document.getElementById('matchMyComp').value);
+  const enemyIdx = parseInt(document.getElementById('matchEnemyComp').value);
+  const my = TEAM_COMPS[myIdx];
+  const enemy = TEAM_COMPS[enemyIdx];
+  const result = getMatchup(myIdx, enemyIdx);
+
+  const badge = result.result === 'win' ? 'win' : result.result === 'lose' ? 'lose' : 'draw';
+  const badgeText = result.result === 'win' ? '✅ 优势' : result.result === 'lose' ? '❌ 劣势' : '⚖️ 均势';
+
+  const el = document.getElementById('matchResult');
+  el.className = 'match-result show';
+  el.innerHTML = `
+    <div class="mr-card">
+      <div class="mr-header">
+        <span style="font-size:28px">${my.icon}</span>
+        <span style="font-size:16px;font-weight:600;color:#e0d5ff;flex:1">${my.name}</span>
+        <span class="mr-badge ${badge}">${badgeText}</span>
+        <span style="font-size:28px">${enemy.icon}</span>
+        <span style="font-size:16px;font-weight:600;color:#e0d5ff">${enemy.name}</span>
+      </div>
+      <div class="mr-label">分析结论</div>
+      <div class="mr-text">${result.reason}</div>
+      ${result.keyItems && result.keyItems.length ? `
+        <div class="mr-label">推荐装备</div>
+        <div class="mr-items">${result.keyItems.map(i => `<span>${i}</span>`).join('')}</div>
+      ` : ''}
+      <div class="mr-label">站位建议</div>
+      <div class="mr-tips ${badge === 'lose' ? 'bad' : 'good'}">${result.position}</div>
+      <div class="mr-label">应对策略</div>
+      <div class="mr-tips ${badge === 'lose' ? 'bad' : 'good'}">${result.tips}</div>
+    </div>
+    <div style="font-size:12px;color:#6a5e8a;text-align:center">阵容克制仅供参考，实际对局受装备、星级、海克斯等影响</div>
+  `;
+}
+
+// ========== 交互 ==========
+function toggleCollapse(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('hidden');
+  header.querySelector('.arrow').classList.toggle('collapsed');
+}
+
+function filterItems() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  document.querySelectorAll('.base-card').forEach(el => {
+    const name = el.querySelector('.name').textContent.toLowerCase();
+    const stat = el.querySelector('.stat').textContent.toLowerCase();
+    el.classList.toggle('dim', q && !name.includes(q) && !stat.includes(q));
+  });
+
+  document.querySelectorAll('.combine-section').forEach(section => {
+    const cards = section.querySelectorAll('.recipe-card');
+    const header = section.querySelector('.combine-header');
+    const body = section.querySelector('.combine-body');
+    let visible = 0;
+    cards.forEach(c => {
+      const match = !q || c.textContent.toLowerCase().includes(q);
+      c.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    if (!q) {
+      section.style.display = '';
+      body.classList.remove('hidden');
+      header.querySelector('.arrow').classList.remove('collapsed');
+    } else {
+      section.style.display = visible > 0 ? '' : 'none';
+      if (visible > 0) {
+        body.classList.remove('hidden');
+        header.querySelector('.arrow').classList.remove('collapsed');
+      }
+    }
+  });
+}
+
+let simTimeout = null;
+function simulate() {
+  clearTimeout(simTimeout);
+  simTimeout = setTimeout(() => {
+    const id1 = document.getElementById('simSelect1').value;
+    const id2 = document.getElementById('simSelect2').value;
+    const key1 = id1+'+'+id2;
+    const key2 = id2+'+'+id1;
+    const recipe = RECIPES[key1] || RECIPES[key2];
+    const el = document.getElementById('simResult');
+
+    if (!recipe) {
+      el.className = 'sim-result';
+      el.innerHTML = '';
+      return;
+    }
+
+    const item1 = BASE_ITEMS.find(b => b.id === id1);
+    const item2 = BASE_ITEMS.find(b => b.id === id2);
+    el.className = 'sim-result show';
+    el.innerHTML = `
+      <span class="ri">${recipe.icon}</span>
+      <div class="rn">${recipe.name}</div>
+      <div class="rd">${item1.icon} ${item1.name} + ${item2.icon} ${item2.name}</div>
+      <div class="rd">${recipe.desc}</div>
+      ${recipe.tip ? `<div class="rr">💡 ${recipe.tip}</div>` : ''}
+    `;
+  }, 200);
+}
+
+function showAll() {
+  document.querySelectorAll('.base-card').forEach(el => el.classList.remove('dim'));
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('show');
+  }
+}
+
+function showBaseDetail(id) {
+  const item = BASE_ITEMS.find(b => b.id === id);
+  if (!item) return;
+  document.getElementById('modalIcon').textContent = item.icon;
+  document.getElementById('modalName').textContent = item.name;
+  document.getElementById('modalType').textContent = '基础装备';
+  document.getElementById('modalFormula').textContent = item.stat;
+  document.getElementById('modalStat').innerHTML = `<strong>属性：</strong>${item.stat}`;
+  document.getElementById('modalDesc').textContent = item.desc;
+  document.getElementById('modalTip').innerHTML = `<strong>💡 建议：</strong>${item.name}是与其它基础装备合成成装的核心材料，合理分配可以极大提升战斗力`;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function showItemDetail(key) {
+  const recipe = RECIPES[key];
+  if (!recipe) return;
+  const parts = key.split('+');
+  const item1 = BASE_ITEMS.find(b => b.id === parts[0]);
+  const item2 = BASE_ITEMS.find(b => b.id === parts[1]);
+  const stars = '★'.repeat(recipe.rating) + '☆'.repeat(5-recipe.rating);
+
+  document.getElementById('modalIcon').textContent = recipe.icon;
+  document.getElementById('modalName').textContent = recipe.name;
+  document.getElementById('modalType').textContent = `合成装备 · 推荐度 ${stars}`;
+  document.getElementById('modalFormula').textContent = `${item1.icon} ${item1.name} + ${item2.icon} ${item2.name}`;
+  document.getElementById('modalStat').innerHTML = `<strong>配方材料：</strong>${recipe.stat || recipe.desc}`;
+  document.getElementById('modalDesc').textContent = recipe.desc;
+  document.getElementById('modalTip').textContent = '💡 ' + (recipe.tip || '根据阵容需求合理选择装备');
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+let _compOpen = {};
+function toggleComp(i) {
+  const el = document.getElementById('compDetail'+i);
+  _compOpen[i] = !_compOpen[i];
+  el.classList.toggle('show', _compOpen[i]);
+}
+
+// ========== 初始化 ==========
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>
